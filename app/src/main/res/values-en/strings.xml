@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zennex</string>
+    <string name="add">Done</string>
+    <string name="add_item">Add item</string>
+    <string name="camera">Camera</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="editName">Edit cat name</string>
+    <string name="en_lang">English</string>
+    <string name="enterCatName">Enter cat name</string>
+    <string name="gallery">Gallery</string>
+    <string name="listView">ListView</string>
+    <string name="map">Map</string>
+    <string name="parsing">Parsing</string>
+    <string name="revert">Revert</string>
+    <string name="ru_lang">Russian</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
