@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zennex</string>
+    <string name="add_item">Добавить</string>
+    <string name="camera">Камера</string>
+    <string name="en_lang">Английский</string>
+    <string name="enterCatName">Введите имя кота</string>
+    <string name="gallery">Галерея</string>
+    <string name="map">Карта</string>
+    <string name="parsing">Парсер</string>
+    <string name="ru_lang">Русский</string>
+    <string name="take_picture">Сделать фото</string>
+    <string name="listView">Лист</string>
+    <string name="action_settings">Настройки</string>
+    <string name="add">Готово</string>
+    <string name="editName">Измените имя</string>
+    <string name="revert">Отмена</string>
+</resources>

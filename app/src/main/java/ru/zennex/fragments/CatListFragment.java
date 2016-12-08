@@ -63,8 +63,8 @@ public class CatListFragment extends ListFragment {
 
         final EditText editText = (EditText) dialogView.findViewById(R.id.catNameEditText);
 
-        builder.setTitle("Enter cat name");
-        builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.enterCatName);
+        builder.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String catName = editText.getText().toString().trim();
@@ -72,7 +72,7 @@ public class CatListFragment extends ListFragment {
                 adapter.notifyDataSetInvalidated();
             }
         });
-        builder.setNegativeButton("Revert", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.revert, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 //                Toast.makeText(getActivity(), "Reverted " + editText.getText().toString(), Toast.LENGTH_SHORT).show();
@@ -91,8 +91,8 @@ public class CatListFragment extends ListFragment {
 
         final EditText editText = (EditText) dialogView.findViewById(R.id.catNameEditText);
 
-        builder.setTitle("Edit cat name");
-        builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.editName);
+        builder.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 cat.setName(editText.getText().toString());
@@ -100,7 +100,7 @@ public class CatListFragment extends ListFragment {
                 adapter.notifyDataSetInvalidated();
             }
         });
-        builder.setNegativeButton("Revert", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.revert, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 //                Toast.makeText(getActivity(), "Reverted " + editText.getText().toString(), Toast.LENGTH_SHORT).show();

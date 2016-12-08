@@ -9,7 +9,7 @@
         <item
             android:id="@+id/scaling"
             android:icon="@mipmap/scale_grey"
-            android:title="@string/picture" />
+            android:title="@string/camera" />
         <item
             android:id="@+id/parsing"
             android:icon="@mipmap/parse_grey"
