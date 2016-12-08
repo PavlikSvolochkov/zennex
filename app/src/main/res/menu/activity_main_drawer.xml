@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/list"
+            android:icon="@mipmap/list_grey"
+            android:title="@string/listView" />
+        <item
+            android:id="@+id/scaling"
+            android:icon="@mipmap/scale_grey"
+            android:title="@string/picture" />
+        <item
+            android:id="@+id/parsing"
+            android:icon="@mipmap/parse_grey"
+            android:title="@string/parsing" />
+        <item
+            android:id="@+id/map"
+            android:icon="@mipmap/map_grey"
+            android:title="@string/map" />
+    </group>
+
+</menu>
