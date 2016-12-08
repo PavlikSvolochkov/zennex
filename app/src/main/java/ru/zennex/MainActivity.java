@@ -77,22 +77,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.english) {
-            Locale locale = new Locale(LOCALE_EN);
-            Locale.setDefault(locale);
-            Configuration config = new Configuration();
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+            setupLocale(LOCALE_EN);
         } else if (id == R.id.russian) {
-            Locale locale = new Locale(LOCALE_RU);
-            Locale.setDefault(locale);
-            Configuration config = new Configuration();
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+            setupLocale(LOCALE_RU);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
+    public void setupLocale(String loc) {
+        Locale locale = new Locale(loc);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        this.recreate();
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
