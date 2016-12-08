@@ -15,4 +15,6 @@
     <string name="add">Готово</string>
     <string name="editName">Измените имя</string>
     <string name="revert">Отмена</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Изменить</string>
 </resources>
