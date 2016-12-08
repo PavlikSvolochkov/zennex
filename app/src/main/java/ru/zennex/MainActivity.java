@@ -22,6 +22,9 @@ import ru.zennex.fragments.ParsingFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private String LOCALE_RU = "ru";
+    private String LOCALE_EN = "en";
+
     private CatListFragment catListFragment;
     private ParsingFragment parsingFragment;
 
@@ -74,15 +77,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.english) {
-            String languageToLoad = "en"; // your language
-            Locale locale = new Locale(languageToLoad);
+            Locale locale = new Locale(LOCALE_EN);
             Locale.setDefault(locale);
             Configuration config = new Configuration();
             config.locale = locale;
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         } else if (id == R.id.russian) {
-            String languageToLoad = "ru"; // your language
-            Locale locale = new Locale(languageToLoad);
+            Locale locale = new Locale(LOCALE_RU);
             Locale.setDefault(locale);
             Configuration config = new Configuration();
             config.locale = locale;
