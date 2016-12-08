@@ -2,7 +2,6 @@ package ru.zennex.fragments;
 
 import android.app.ListFragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,23 +30,18 @@ public class ParsingFragment extends ListFragment {
     private final String URL = "http://quotes.zennex.ru/api/v3/bash/quotes?sort=time";
 
     private List<Quote> quoteList;
+    private ParseTask parseTask;
     private ParseListAdapter adapter;
 
     public ParsingFragment() {
         // Required empty public constructor
     }
 
-    public static ParsingFragment newInstance(String param1, String param2) {
-        ParsingFragment fragment = new ParsingFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onStart() {
         super.onStart();
-        ParseTask parseTask = new ParseTask();
+        quoteList = new ArrayList<>();
+        parseTask = new ParseTask();
         parseTask.execute();
     }
 
@@ -66,17 +60,11 @@ public class ParsingFragment extends ListFragment {
         return inflater.inflate(R.layout.fragment_parsing, container, false);
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
-
     public class ParseListAdapter extends ArrayAdapter<Quote> {
-
-        List<Quote> quoteList = new ArrayList<>();
 
         public ParseListAdapter(Context context, int resource, List<Quote> objects) {
             super(context, resource, objects);
-            quoteList.addAll(objects);
+//            quoteList.addAll(objects);
         }
 
         @Override
@@ -109,7 +97,6 @@ public class ParsingFragment extends ListFragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            quoteList = new ArrayList<>();
         }
 
         @Override
