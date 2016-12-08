@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import ru.zennex.activity.MapsActivity;
 import ru.zennex.activity.PictureActivity;
+import ru.zennex.fragments.CameraFragment;
 import ru.zennex.fragments.CatListFragment;
 import ru.zennex.fragments.MapFragment;
 import ru.zennex.fragments.ParsingFragment;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private CatListFragment catListFragment;
     private MapFragment mapFragment;
-    private PictureActivity pictureActivity;
+    private CameraFragment cameraFragment;
     private ParsingFragment parsingFragment;
 
     @Override
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentManager.beginTransaction().replace(R.id.content_main, new CatListFragment()).commit();
 
         catListFragment = new CatListFragment();
-        pictureActivity = new PictureActivity();
+        cameraFragment = new CameraFragment();
         parsingFragment = new ParsingFragment();
         mapFragment = new MapFragment();
 
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.list) {
             fragmentTransaction.replace(R.id.content_main, catListFragment);
         } else if (id == R.id.scaling) {
+//            fragmentTransaction.replace(R.id.content_main, cameraFragment);
             Intent intent = new Intent(this, PictureActivity.class);
             startActivity(intent);
         } else if (id == R.id.parsing) {

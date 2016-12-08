@@ -30,8 +30,12 @@ public class ParsingFragment extends ListFragment {
     private final String URL = "http://quotes.zennex.ru/api/v3/bash/quotes?sort=time";
 
     private List<Quote> quoteList;
-    private ParseTask parseTask;
     private ParseListAdapter adapter;
+
+    private TextView id;
+    private TextView time;
+    private TextView rating;
+    private TextView description;
 
     public ParsingFragment() {
         // Required empty public constructor
@@ -40,19 +44,19 @@ public class ParsingFragment extends ListFragment {
     @Override
     public void onStart() {
         super.onStart();
-        quoteList = new ArrayList<>();
-        parseTask = new ParseTask();
-        parseTask.execute();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        quoteList = new ArrayList<>();
+        setRetainInstance(true);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        new ParseTask().execute();
     }
 
     @Override
@@ -64,7 +68,7 @@ public class ParsingFragment extends ListFragment {
 
         public ParseListAdapter(Context context, int resource, List<Quote> objects) {
             super(context, resource, objects);
-//            quoteList.addAll(objects);
+            quoteList.addAll(objects);
         }
 
         @Override
@@ -74,10 +78,10 @@ public class ParsingFragment extends ListFragment {
 
             View row = inflater.inflate(R.layout.parsing_row, parent, false);
 
-            TextView id = (TextView) row.findViewById(R.id.id);
-            TextView time = (TextView) row.findViewById(R.id.time);
-            TextView rating = (TextView) row.findViewById(R.id.rating);
-            TextView description = (TextView) row.findViewById(R.id.description);
+            id = (TextView) row.findViewById(R.id.id);
+            time = (TextView) row.findViewById(R.id.time);
+            rating = (TextView) row.findViewById(R.id.rating);
+            description = (TextView) row.findViewById(R.id.description);
 
             id.setText("id: " + quoteList.get(position).getId());
             time.setText("time: " + quoteList.get(position).getTime());

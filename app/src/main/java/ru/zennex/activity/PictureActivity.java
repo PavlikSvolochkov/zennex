@@ -20,11 +20,10 @@ import ru.zennex.common.TouchImageView;
 
 public class PictureActivity extends Activity implements View.OnTouchListener {
 
-    private static int RESULT_LOAD_IMAGE = 1;
     private static final int NONE = 0;
     private static final int DRAG = 1;
     private static final int ZOOM = 2;
-
+    private static int RESULT_LOAD_IMAGE = 1;
     private final int TYPE_PHOTO = 1;
     private final int REQUEST_CODE_PHOTO = 1;
     private final String TAG = "myLogs";
@@ -46,7 +45,7 @@ public class PictureActivity extends Activity implements View.OnTouchListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_layout);
-        touchImageView = new TouchImageView(this);
+        touchImageView = (TouchImageView) findViewById(R.id.picture);
     }
 
     public void onClickPhoto(View view) {
@@ -73,10 +72,8 @@ public class PictureActivity extends Activity implements View.OnTouchListener {
                         if (obj instanceof Bitmap) {
                             Bitmap bitmap = (Bitmap) obj;
                             Log.d(TAG, "bitmap " + bitmap.getWidth() + " x " + bitmap.getHeight());
-//                            ivPhoto.setImageBitmap(bitmap);
                             touchImageView.findViewById(R.id.picture);
                             touchImageView.setImageBitmap(bitmap);
-                            setContentView(touchImageView);
                         }
                     }
                 }
@@ -96,7 +93,6 @@ public class PictureActivity extends Activity implements View.OnTouchListener {
             cursor.close();
 
             touchImageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-            setContentView(touchImageView);
         }
     }
 

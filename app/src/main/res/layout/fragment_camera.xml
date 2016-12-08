@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activity.PictureActivity">
 
     <LinearLayout
         android:id="@+id/btnLayout"
@@ -27,11 +28,11 @@
 
     </LinearLayout>
 
-    <ru.zennex.common.TouchImageView
+    <ImageView
         android:id="@+id/picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/btnLayout"
-        android:scaleType="fitCenter" />
+        android:scaleType="matrix" />
 
-</RelativeLayout>
+</FrameLayout>
