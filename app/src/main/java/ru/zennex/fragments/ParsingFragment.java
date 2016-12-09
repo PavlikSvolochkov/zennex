@@ -51,12 +51,12 @@ public class ParsingFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         quoteList = new ArrayList<>();
         setRetainInstance(true);
+        new ParseTask().execute();
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        new ParseTask().execute();
     }
 
     @Override
