@@ -89,6 +89,8 @@ public class MainListFragment extends android.support.v4.app.ListFragment {
         b.show();
     }
 
+
+
     public void showEditDialog(final Cat cat) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -96,14 +98,19 @@ public class MainListFragment extends android.support.v4.app.ListFragment {
         builder.setView(dialogView);
 
         final EditText editText = (EditText) dialogView.findViewById(R.id.catNameEditText);
+        editText.setText(cat.getName());
 
         builder.setTitle(R.string.editName);
         builder.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                cat.setName(editText.getText().toString());
-                catDAO.updateCat(cat);
-                adapter.notifyDataSetInvalidated();
+
+                if (!editText.getText().toString().equals(cat.getName())) {
+                    cat.setName(editText.getText().toString());
+                    catDAO.updateCat(cat);
+                    adapter.notifyDataSetInvalidated();
+                }
+                //TODO: onKeyDown() or onBackPressed()
             }
         });
         builder.setNegativeButton(R.string.revert, new DialogInterface.OnClickListener() {
