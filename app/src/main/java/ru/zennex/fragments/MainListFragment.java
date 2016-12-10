@@ -37,8 +37,15 @@ public class MainListFragment extends android.support.v4.app.ListFragment {
     private Button addListItemBtn;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        setRetainInstance(true);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         dbHelper = new DBHelper(getActivity());
         database = dbHelper.getWritableDatabase();
         catDAO = new CatDAO(getActivity());

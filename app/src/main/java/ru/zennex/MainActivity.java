@@ -36,11 +36,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_main, new MainListFragment()).commit();
+//        fragmentManager.beginTransaction().replace(R.id.content_main, new MainListFragment()).commit();
 
         mainListFragment = new MainListFragment();
+//        if (mainListFragment == null) {
+//            mainListFragment = (MainListFragment) fragmentManager.findFragmentByTag("MainListFragment");
+//            mainListFragment = new MainListFragment();
+//            fragmentManager.beginTransaction().add(R.id.content_main, mainListFragment, "MainListFragment").commit();
+//        }
         parsingFragment = new ParsingFragment();
+//        if (parsingFragment == null) {
+//            parsingFragment = (ParsingFragment) fragmentManager.findFragmentByTag("MainListFragment");
+//            parsingFragment = new ParsingFragment();
+//            fragmentManager.beginTransaction().add(R.id.content_main, parsingFragment, "MainListFragment").commit();
+//        }
         cameraFragment = new CameraFragment();
+//        if (cameraFragment == null) {
+//            cameraFragment = (CameraFragment) fragmentManager.findFragmentByTag("MainListFragment");
+//            cameraFragment = new CameraFragment();
+//            fragmentManager.beginTransaction().add(R.id.content_main, cameraFragment, "MainListFragment").commit();
+//        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -76,9 +91,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.english) {
+//        if (id == R.id.action_settings) {
+//            return true;
+        if (id == R.id.english) {
             setupLocale(LOCALE_EN);
         } else if (id == R.id.russian) {
             setupLocale(LOCALE_RU);

@@ -30,7 +30,6 @@ public class CameraFragment extends Fragment implements View.OnTouchListener {
     private static final int DRAG = 1;
     private static final int ZOOM = 2;
     private static int RESULT_LOAD_IMAGE = 1;
-    private final int TYPE_PHOTO = 1;
     private final int REQUEST_CODE_PHOTO = 1;
     private final String TAG = "myLogs";
 
@@ -58,6 +57,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     @Override
