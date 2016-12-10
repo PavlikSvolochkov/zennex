@@ -1,13 +1,14 @@
 package ru.zennex.fragments;
 
-import android.app.ListFragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -37,26 +38,26 @@ public class ParsingFragment extends ListFragment {
     private TextView rating;
     private TextView description;
 
+    private ProgressBar progressBar;
+
     public ParsingFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         quoteList = new ArrayList<>();
-        setRetainInstance(true);
-        new ParseTask().execute();
+//        setRetainInstance(true);
+//        new ParseTask().execute();
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        new ParseTask().execute();
+        adapter = new ParseListAdapter(getActivity(), R.layout.parsing_row, quoteList);
+        setListAdapter(adapter);
     }
 
     @Override
@@ -100,7 +101,8 @@ public class ParsingFragment extends ListFragment {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+            progressBar= new ProgressBar(getActivity());
+            progressBar.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -129,7 +131,6 @@ public class ParsingFragment extends ListFragment {
 
         @Override
         protected void onPostExecute(String strJson) {
-            super.onPostExecute(strJson);
             Quote quote;
             JSONObject dataJsonObj;
             try {
@@ -150,9 +151,8 @@ public class ParsingFragment extends ListFragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-            adapter = new ParseListAdapter(getActivity(), R.layout.parsing_row, quoteList);
-            setListAdapter(adapter);
+            adapter.notifyDataSetInvalidated();
+            progressBar.setVisibility(View.GONE);
         }
     }
 }

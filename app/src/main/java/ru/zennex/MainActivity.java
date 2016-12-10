@@ -1,10 +1,11 @@
 package ru.zennex;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,8 +17,8 @@ import android.view.MenuItem;
 import java.util.Locale;
 
 import ru.zennex.activity.MapActivity;
-import ru.zennex.activity.PictureActivity;
-import ru.zennex.fragments.CatListFragment;
+import ru.zennex.fragments.CameraFragment;
+import ru.zennex.fragments.MainListFragment;
 import ru.zennex.fragments.ParsingFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,19 +26,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String LOCALE_RU = "ru";
     private String LOCALE_EN = "en";
 
-    private CatListFragment catListFragment;
+    private MainListFragment mainListFragment;
     private ParsingFragment parsingFragment;
+    private CameraFragment cameraFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        android.app.FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_main, new CatListFragment()).commit();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main, new MainListFragment()).commit();
 
-        catListFragment = new CatListFragment();
+        mainListFragment = new MainListFragment();
         parsingFragment = new ParsingFragment();
+        cameraFragment = new CameraFragment();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,12 +48,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override
@@ -99,13 +101,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         if (id == R.id.list) {
-            fragmentTransaction.replace(R.id.content_main, catListFragment);
-        } else if (id == R.id.scaling) {
-            Intent intent = new Intent(this, PictureActivity.class);
-            startActivity(intent);
+            fragmentTransaction.replace(R.id.content_main, mainListFragment);
+        } else if (id == R.id.camera) {
+            fragmentTransaction.replace(R.id.content_main, cameraFragment);
         } else if (id == R.id.parsing) {
             fragmentTransaction.replace(R.id.content_main, parsingFragment);
         } else if (id == R.id.map) {

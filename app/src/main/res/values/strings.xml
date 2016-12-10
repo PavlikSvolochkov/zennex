@@ -9,14 +9,12 @@
     <string name="parsing">Parsing</string>
     <string name="map">Map</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="add_item">Add item</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="ru_lang">Russian</string>
     <string name="en_lang">English</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="enterCatName">Enter cat name</string>
     <string name="add">Done</string>
     <string name="revert">Revert</string>
@@ -25,5 +23,7 @@
     <string name="editName">Edit cat name</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

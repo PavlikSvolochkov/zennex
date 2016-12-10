@@ -1,7 +1,6 @@
 package ru.zennex.fragments;
 
 import android.app.AlertDialog;
-import android.app.ListFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,12 +27,12 @@ import ru.zennex.common.Cat;
 import ru.zennex.database.CatDAO;
 import ru.zennex.database.DBHelper;
 
-public class CatListFragment extends ListFragment {
+public class MainListFragment extends android.support.v4.app.ListFragment {
 
     private DBHelper dbHelper;
+    private CatDAO catDAO;
     private SQLiteDatabase database;
     private MainListAdapter adapter;
-    private CatDAO catDAO;
 
     private Button addListItemBtn;
 

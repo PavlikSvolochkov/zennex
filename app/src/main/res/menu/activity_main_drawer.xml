@@ -7,7 +7,7 @@
             android:icon="@mipmap/list_grey"
             android:title="@string/listView" />
         <item
-            android:id="@+id/scaling"
+            android:id="@+id/camera"
             android:icon="@mipmap/scale_grey"
             android:title="@string/camera" />
         <item

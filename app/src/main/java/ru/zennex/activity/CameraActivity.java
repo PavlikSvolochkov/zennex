@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import ru.zennex.R;
 import ru.zennex.common.TouchImageView;
 
-public class PictureActivity extends Activity implements View.OnTouchListener {
+public class CameraActivity extends Activity implements View.OnTouchListener {
 
     private static final int NONE = 0;
     private static final int DRAG = 1;
@@ -45,7 +45,7 @@ public class PictureActivity extends Activity implements View.OnTouchListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_layout);
-        touchImageView = (TouchImageView) findViewById(R.id.picture);
+//        touchImageView = (TouchImageView) findViewById(R.id.picture);
     }
 
     public void onClickPhoto(View view) {
@@ -72,7 +72,7 @@ public class PictureActivity extends Activity implements View.OnTouchListener {
                         if (obj instanceof Bitmap) {
                             Bitmap bitmap = (Bitmap) obj;
                             Log.d(TAG, "bitmap " + bitmap.getWidth() + " x " + bitmap.getHeight());
-                            touchImageView.findViewById(R.id.picture);
+                            touchImageView.findViewById(R.id.touchImage);
                             touchImageView.setImageBitmap(bitmap);
                         }
                     }
