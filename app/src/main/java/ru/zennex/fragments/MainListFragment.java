@@ -89,8 +89,6 @@ public class MainListFragment extends android.support.v4.app.ListFragment {
         b.show();
     }
 
-
-
     public void showEditDialog(final Cat cat) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();

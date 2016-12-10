@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String LOCALE_EN = "en";
 
     private MainListFragment mainListFragment;
-    private ParsingFragment parsingFragment;
     private CameraFragment cameraFragment;
+    private ParsingFragment parsingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +78,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-//        if (id == R.id.action_settings) {
-//            return true;
         if (id == R.id.english) {
             setupLocale(LOCALE_EN);
         } else if (id == R.id.russian) {
